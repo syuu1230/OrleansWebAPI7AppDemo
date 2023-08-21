@@ -16,22 +16,31 @@ namespace OrleansWebAPI7AppDemo.Controllers
         [HttpGet()]
         public String TestValue()
         {
-            return "あいうえお";
+            int sum = 0;
+            for (int i = 0; i <= 20; i++)
+            {
+                if (i % 3 == 0)
+                {
+                    sum = sum + i;
+                }
+            }
+            return $"答えは {sum} です!";
         }
 
 
         [HttpGet()]
-        public IEnumerable<string> TestArray()
+        public BankAccount TestArray()
         {
-            string[] items = new string[] { "あいうえお", "かきくけこ", "さしすせそ" };
-            return items;
+            BankAccount account = new BankAccount("kouji sano",0);
+            account.Owner = "佐野浩司";
+            return account;
         }
 
         [HttpGet()]
         public Animal TestObject()
         {
             Animal animal_1 = new Animal();
-            animal_1.Name = "いぬ";
+            animal_1.Name = "ねこぉぉ";
             return animal_1;
         }
 
